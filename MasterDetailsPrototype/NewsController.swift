@@ -8,21 +8,37 @@
 
 import UIKit
 
-class NewsController: UITableViewController {
+class NewsController: UITableViewController, NewsFacadeDelegate {
     private let model = NewsFacade()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        showItems()
+        
+        model.delegate = self
+        
+        refreshControl?.addTarget(self, action: #selector(update), for: .valueChanged)
+        update()
     }
     
-    func showItems() {
+    func update() {
+        model.updateNews()
+    }
+    
+    //MARK: События модели
+    func onNewsUpdated() {
+        refreshControl?.endRefreshing()
+        
         guard model.hasNews else {
             //Показываем надпись, что новостей нет
             return
         }
         
         tableView.reloadData()
+    }
+    
+    func onNewsUpdateError(_ error: NetworkError) {
+        refreshControl?.endRefreshing()
+        //Показываем сообщение об ошибке
     }
 
     //MARK: Заполнение таблицы
