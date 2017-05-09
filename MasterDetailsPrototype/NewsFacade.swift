@@ -11,6 +11,7 @@ import Foundation
 protocol NewsFacadeDelegate {
     func onNewsUpdated()
     func onNewsUpdateError(_ error: NetworkError)
+    func showNewsDetails(model: NewsDetailsFacade)
 }
 
 class NewsFacade {
@@ -49,10 +50,11 @@ class NewsFacade {
     }
     
     //MARK: Вспомогательные методы
-    func detailsFacadeForItem(row: Int) -> NewsDetailsFacade? {
+    
+    func selectItem(row: Int) {
         if let item = news?[row] {
-            return NewsDetailsFacade(newsItem: item)
+            let facade = NewsDetailsFacade(newsItem: item)
+            delegate?.showNewsDetails(model: facade)
         }
-        return nil
     }
 }

@@ -9,26 +9,32 @@
 import UIKit
 
 class NewsController: UITableViewController, NewsFacadeDelegate {
-    private let model = NewsFacade()
+    var coordinator: NewsCoordinator?
+    
+    var model: NewsFacade? {
+        didSet {
+            model?.delegate = self
+        }
+    }
+    
+    var onShowNewsDetails: ((NewsDetailsFacade) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        model.delegate = self
-        
+        title = "Новости"
         refreshControl?.addTarget(self, action: #selector(update), for: .valueChanged)
         update()
     }
     
     func update() {
-        model.updateNews()
+        model?.updateNews()
     }
     
     //MARK: События модели
     func onNewsUpdated() {
         refreshControl?.endRefreshing()
         
-        guard model.hasNews else {
+        guard model?.hasNews ?? false else {
             //Показываем надпись, что новостей нет
             return
         }
@@ -47,21 +53,27 @@ class NewsController: UITableViewController, NewsFacadeDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.news?.count ?? 0
+        return model?.news?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
-        cell.newsItem = model.news![indexPath.row]
+        cell.newsItem = model?.news![indexPath.row]
         return cell
     }
     
     //MARK: Отображение подробностей
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        model?.selectItem(row: indexPath.row)
+    }
     
+    func showNewsDetails(model: NewsDetailsFacade) {
+        onShowNewsDetails?(model)
+    }
+    
+    //MARK: Связь с координатором
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowDetails" {
-            let detailsController = segue.destination as! NewsDetailsController
-            detailsController.model = model.detailsFacadeForItem(row: tableView.indexPathForSelectedRow!.row)
-        }
+        coordinator?.prepareForSegue(segue, sender: sender)
     }
 }

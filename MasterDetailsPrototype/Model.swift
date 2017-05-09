@@ -16,4 +16,8 @@ class Model {
     private init() {
         news = NewsModel()
     }
+    
+    func initialize() {
+        //Тут можно сделать предварительную настройку модели
+    }
 }
