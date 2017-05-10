@@ -1,0 +1,21 @@
+PODS:
+  - SegueCoordinator (0.1.0)
+
+DEPENDENCIES:
+  - SegueCoordinator (from `https://github.com/npu3pak/ios-lib-segue-coordinator.git`)
+
+EXTERNAL SOURCES:
+  SegueCoordinator:
+    :git: https://github.com/npu3pak/ios-lib-segue-coordinator.git
+
+CHECKOUT OPTIONS:
+  SegueCoordinator:
+    :commit: b860cc60a6d833188741a4e49c621b801f46338e
+    :git: https://github.com/npu3pak/ios-lib-segue-coordinator.git
+
+SPEC CHECKSUMS:
+  SegueCoordinator: dacd7e32372844154e1cde9e94c33aff4a4b984d
+
+PODFILE CHECKSUM: 13b9de11101cfec61d28c566fb127a2b0f73bf5e
+
+COCOAPODS: 1.2.1

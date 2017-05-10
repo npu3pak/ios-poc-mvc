@@ -9,7 +9,8 @@
 import UIKit
 
 class NewsDetailsController: UIViewController {
-    var coordinator: NewsCoordinator?
+    weak var coordinator: NewsCoordinator?
+    
     var model: NewsDetailsFacade?
     
     @IBOutlet weak var textView: UITextView!

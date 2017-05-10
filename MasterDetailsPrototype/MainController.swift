@@ -9,15 +9,14 @@
 import UIKit
 
 class MainController: UIViewController {
-
     var newsCoordinator: NewsCoordinator?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        Model.instance.initialize()
-        
+        super.viewDidLoad()        
         newsCoordinator = NewsCoordinator(navigationController: navigationController!)
+    }
+    
+    @IBAction func onNewsButtonClick(_ sender: Any) {
         newsCoordinator?.start()
     }
 }

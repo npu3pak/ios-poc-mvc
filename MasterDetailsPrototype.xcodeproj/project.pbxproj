@@ -163,8 +163,8 @@
 				4097B0E21EC18B3B002A180D /* News.storyboard */,
 				409E0EC61EC1FEC10002B4DB /* NewsCoordinator.swift */,
 				409E0EB61EC1D6C70002B4DB /* NewsController.swift */,
-				409E0EB81EC1D7470002B4DB /* NewsCell.swift */,
 				409E0EBB1EC1DB860002B4DB /* NewsDetailsController.swift */,
+				409E0EB81EC1D7470002B4DB /* NewsCell.swift */,
 			);
 			name = News;
 			sourceTree = "<group>";

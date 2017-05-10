@@ -14,7 +14,7 @@ class NewsCoordinator: SegueCoordinator {
     }
     
     func start() {
-        pushInitial(clearStack: true) {
+        pushInitial() {
             let newsController = $0 as! NewsController
             newsController.coordinator = self
             newsController.model = NewsFacade()

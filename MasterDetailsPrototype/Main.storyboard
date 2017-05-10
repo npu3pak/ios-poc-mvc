@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-550" y="154"/>
         </scene>
-        <!--Main Controller-->
+        <!--Меню-->
         <scene sceneID="DDN-nz-x2B">
             <objects>
                 <viewController id="lkf-FW-YC0" customClass="MainController" customModule="MasterDetailsPrototype" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,13 +36,26 @@
                     <view key="view" contentMode="scaleToFill" id="Hy8-A5-SiA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzE-NC-1GC">
+                                <rect key="frame" x="157" y="318" width="61" height="30"/>
+                                <state key="normal" title="Новости"/>
+                                <connections>
+                                    <action selector="onNewsButtonClick:" destination="lkf-FW-YC0" eventType="touchUpInside" id="FSF-hJ-lfw"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xzE-NC-1GC" firstAttribute="centerX" secondItem="Hy8-A5-SiA" secondAttribute="centerX" id="M8D-Xj-nss"/>
+                            <constraint firstItem="xzE-NC-1GC" firstAttribute="centerY" secondItem="Hy8-A5-SiA" secondAttribute="centerY" id="i3Q-bB-bUP"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="9Gn-BH-V1v"/>
+                    <navigationItem key="navigationItem" title="Меню" id="9Gn-BH-V1v"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8QS-mc-0l3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="215" y="153"/>
+            <point key="canvasLocation" x="217" y="153"/>
         </scene>
     </scenes>
 </document>

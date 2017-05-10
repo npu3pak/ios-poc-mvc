@@ -9,7 +9,7 @@
 import UIKit
 
 class NewsController: UITableViewController, NewsFacadeDelegate {
-    var coordinator: NewsCoordinator?
+    weak var coordinator: NewsCoordinator?
     
     var model: NewsFacade? {
         didSet {
