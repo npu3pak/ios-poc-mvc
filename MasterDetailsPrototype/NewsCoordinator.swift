@@ -16,7 +16,6 @@ class NewsCoordinator: SegueCoordinator {
     func start() {
         pushInitial() {
             let newsController = $0 as! NewsController
-            newsController.coordinator = self
             newsController.model = NewsFacade()
             newsController.onShowNewsDetails = showNewsDetails
         }
@@ -25,7 +24,6 @@ class NewsCoordinator: SegueCoordinator {
     func showNewsDetails(model: NewsDetailsFacade) {
         segue("ShowDetails") {
             let detailsController = $0 as! NewsDetailsController
-            detailsController.coordinator = self
             detailsController.model = model
         }
     }

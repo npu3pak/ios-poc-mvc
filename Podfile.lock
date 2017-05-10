@@ -10,7 +10,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SegueCoordinator:
-    :commit: b860cc60a6d833188741a4e49c621b801f46338e
+    :commit: cf708d54d5c4c57dac5457a0a5fc56b0f1f24aff
     :git: https://github.com/npu3pak/ios-lib-segue-coordinator.git
 
 SPEC CHECKSUMS:

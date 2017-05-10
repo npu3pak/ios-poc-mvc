@@ -9,8 +9,6 @@
 import UIKit
 
 class NewsDetailsController: UIViewController {
-    weak var coordinator: NewsCoordinator?
-    
     var model: NewsDetailsFacade?
     
     @IBOutlet weak var textView: UITextView!
@@ -23,10 +21,5 @@ class NewsDetailsController: UIViewController {
     func showData() {
         title = model?.title
         textView.text = model?.text
-    }
-    
-    //MARK: Связь с координатором
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        coordinator?.prepareForSegue(segue, sender: sender)
     }
 }

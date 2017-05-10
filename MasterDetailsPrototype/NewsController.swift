@@ -9,8 +9,6 @@
 import UIKit
 
 class NewsController: UITableViewController, NewsFacadeDelegate {
-    weak var coordinator: NewsCoordinator?
-    
     var model: NewsFacade? {
         didSet {
             model?.delegate = self
@@ -70,10 +68,5 @@ class NewsController: UITableViewController, NewsFacadeDelegate {
     
     func showNewsDetails(model: NewsDetailsFacade) {
         onShowNewsDetails?(model)
-    }
-    
-    //MARK: Связь с координатором
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        coordinator?.prepareForSegue(segue, sender: sender)
     }
 }
